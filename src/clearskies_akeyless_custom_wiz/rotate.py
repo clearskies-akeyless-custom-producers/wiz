@@ -1,4 +1,5 @@
 import json
+import base64
 import clearskies
 from clearskies_akeyless_custom_wiz.create import create
 
