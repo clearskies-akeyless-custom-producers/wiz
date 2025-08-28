@@ -19,5 +19,5 @@ def create(clientId, clientSecret, requests):
     if not response_data.get("access_token"):
         raise clearskies.exceptions.ClientError("I received a 200 response when fetching a JWT from Wiz, but I couldn't find the access token :(")
     return {
-        "access_token": jwt,
+        "access_token": response_data.get("access_token"),
     }
