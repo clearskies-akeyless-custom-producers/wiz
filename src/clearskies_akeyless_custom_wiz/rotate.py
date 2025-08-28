@@ -1,10 +1,11 @@
+import json
 import clearskies
 from clearskies_akeyless_custom_wiz.create import create
 
 def rotate(clientId, clientSecret, requests):
     jwt = create(clientId, clientSecret, requests)["access_token"]
     raw_subclaims = jwt.split(".")[1]
-    subclaims = json.loads(base64.b64decode('c2FkZgo=' + '==').decode('utf-8').strip())
+    subclaims = json.loads(base64.b64decode(raw_subclaims + '==').decode('utf-8').strip())
     if "dc" not in subclaims:
         raise clearskies.exceptions.ClientError("For some strange reason the JWT returned by Wiz didn't contain a 'dc' claim. :shrug:")
     dc = subclaims["dc"]
