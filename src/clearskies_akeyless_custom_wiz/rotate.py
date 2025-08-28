@@ -33,7 +33,7 @@ def rotate(clientId, clientSecret, requests):
         },
         headers={
             "content-type": "application/json",
-            "Authorization": f"Bearer ${jwt}",
+            "Authorization": f"Bearer {jwt}",
         }
     )
 
