@@ -26,7 +26,7 @@ def rotate(clientId, clientSecret, requests):
     """
 
     rotate_response = requests.post(
-        f"https://api.${dc}.app.wiz.io/graphql",
+        f"https://api.{dc}.app.wiz.io/graphql",
         json={
             "query": gql_query,
             "variables": { "input": clientId },
