@@ -4,7 +4,7 @@ Wiz dynamic producer for Akeyless
 
 The payload for this producer looks like:
 
-```
+```json
 {"clientId": "[YOUR_CLIENT_ID_HERE]", "clientSecret": "[YOUR_CLIENT_SECRET_HERE]"}
 ```
 
@@ -15,7 +15,30 @@ optionally provide the `url` parameter which will add a prefix to the endpoints.
 If used as a producer, it will use the client credentials to fetch and return a Wiz JWT.  It can also rotate the
 client credentials you provide.
 
+## Installation
+
+```bash
+# Install uv if not already installed
+uv add clear-skies-akeyless-custom-wiz
 ```
+
+```bash
+pip install clear-skies-akeyless-custom-wiz
+```
+
+or
+
+```bash
+pipenv install clear-skies-akeyless-custom-wiz
+```
+
+or
+
+```bash
+poetry add clear-skies-akeyless-custom-wiz
+```
+
+```python
 import clearskies
 import clearskies_akeyless_custom_wiz
 
@@ -27,7 +50,7 @@ wsgi()
 
 Which you can test directly using calls like:
 
-```
+```bash
 curl 'http://localhost:8080/sync/create' -d '{"payload":"{\"clientId\":\"YOUR_CLIENT_ID_HERE\",\"clientSecret\":\"YOUR_CLIENT_SECRET_HERE\"}"}'
 
 curl 'http://localhost:8080/sync/rotate' -d '{"payload":"{\"clientId\":\"YOUR_CLIENT_ID_HERE\",\"clientSecret\":\"YOUR_CLIENT_SECRET_HERE\"}"}'
